@@ -49,11 +49,21 @@
     flex-direction: column;
   }
 
+  .profile__image {
+    margin: 0 0 30px 0;
+  }
+
+  .profile__info {
+    margin: 0;
+  }
+
   .profile__info_name {
     font-size: 22px;
+    margin: 0 auto 14px;
   }
 
   .profile__info_attribute {
     font-size: 14px;
+    margin: 0 auto 36px;
   }
 }
