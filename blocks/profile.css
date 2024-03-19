@@ -3,10 +3,17 @@
   margin: 0 0 50px 0;
   align-items: center;
   padding-left: 200px;
+  max-width: 880px;
 }
 
 .profile__image {
   margin: 0 30px 0 0;
+}
+
+.profile__content {
+  display: flex;
+  gap: 18px;
+  width: 100%;
 }
 
 .profile__info {
@@ -17,14 +24,14 @@
   width: 100%;
 }
 
-.profile__info_name {
+.profile__info-name {
   margin: 0 0 16px;
   font-family: "Inter Medium";
   font-size: 42px;
   line-height: 48px;
 }
 
-.profile__info_attribute {
+.profile__info-attribute {
   margin: 0;
   font-family: "Inter Regular";
   font-size: 18px;
@@ -32,14 +39,17 @@
 }
 
 .profile__info_edit_button {
-  margin-right: 165px;
+  margin: 15px 165px 0 0;
   max-width: 24px;
   max-height: 24px;
   padding: 0;
+  background-color: transparent;
+  border: 1px solid white;
 }
 
-.profile__info_button {
-  width: 150px;
+.profile__info_button-add {
+  max-width: 150px;
+  width: 100%;
   height: 50px;
   border: 2px solid #fff;
   background-color: #000;
