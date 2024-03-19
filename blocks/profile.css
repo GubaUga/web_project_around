@@ -51,12 +51,20 @@
   border: 1px solid white;
 }
 
+.profile__info_edit_button:hover {
+  border: 1px solid gray;
+}
+
 .profile__info_button-add {
   max-width: 150px;
   width: 100%;
   height: 50px;
   border: 2px solid #fff;
   background-color: #000;
+}
+
+.profile__info_button-add:hover {
+  border: 2px solid gray;
 }
 
 @media screen and (max-width: 720px) {
