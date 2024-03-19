@@ -1,6 +1,5 @@
 .footer {
   background-color: black;
-  padding-left: 200px;
 }
 
 .footer_copyright {
@@ -13,6 +12,5 @@
 
 @media screen and (max-width: 720px) {
   .footer {
-    padding: 19px;
   }
 }

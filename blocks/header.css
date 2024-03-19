@@ -3,7 +3,8 @@
   display: flex;
   align-items: center;
   width: 880px;
-  margin: 0 0 40px 200px;
+  margin: 0 0 40px 0;
+  border-bottom: 1px solid gray;
 }
 
 .header__logo {
@@ -18,7 +19,6 @@
   }
 
   .header__logo {
-    margin: 28px auto 32px 0;
-    padding-left: 19px;
+    margin: 28px auto 32px 27px;
   }
 }

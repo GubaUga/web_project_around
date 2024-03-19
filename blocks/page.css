@@ -1,7 +1,11 @@
 .page {
   background-color: #000;
   color: #fff;
+  padding-left: 200px;
 }
 
 @media screen and (max-width: 720px) {
+  .page {
+    padding-left: 0;
+  }
 }

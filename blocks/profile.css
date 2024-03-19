@@ -2,7 +2,6 @@
   display: flex;
   margin: 0 0 50px 0;
   align-items: center;
-  padding-left: 200px;
   max-width: 880px;
 }
 
@@ -58,7 +57,6 @@
 @media screen and (max-width: 720px) {
   .profile {
     flex-direction: column;
-    padding-left: 19px;
     max-width: 282px;
   }
 
