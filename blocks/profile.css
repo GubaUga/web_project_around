@@ -43,3 +43,17 @@
   border: 2px solid #fff;
   background-color: #000;
 }
+
+@media screen and (max-width: 720px) {
+  .profile {
+    flex-direction: column;
+  }
+
+  .profile__info_name {
+    font-size: 22px;
+  }
+
+  .profile__info_attribute {
+    font-size: 14px;
+  }
+}
