@@ -12,3 +12,8 @@
   font-family: "Inter Bold";
   src: url(./Inter-Bold.woff2);
 }
+
+@font-face {
+  font-family: "Inter Black";
+  src: url(./Inter-Black.woff2);
+}

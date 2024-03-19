@@ -1,0 +1,38 @@
+.pictures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 17px;
+  row-gap: 20px;
+}
+
+.pictures__card {
+  max-width: 282px;
+}
+
+.pictures__card_image {
+  max-width: 282px;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.pictures__card_info {
+  display: flex;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+  justify-content: space-between;
+  padding: 25px 15px 31px 21px;
+}
+
+.pictures__card_name {
+  font-family: "Inter Black";
+  font-size: 24px;
+  color: #000;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.pictures__card_like {
+  dec
+}
