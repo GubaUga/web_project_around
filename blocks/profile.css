@@ -11,8 +11,13 @@
 
 .profile__content {
   display: flex;
-  gap: 18px;
+  flex-direction: column;
   width: 100%;
+}
+
+.profile__content-name {
+  display: flex;
+  gap: 18px;
 }
 
 .profile__info {
@@ -58,23 +63,43 @@
   .profile {
     flex-direction: column;
     max-width: 282px;
+    margin: 0 0 36px 0;
   }
 
   .profile__image {
     margin: 0 0 30px 0;
   }
 
+  .profile__content {
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .profile__content-name {
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
   .profile__info {
     margin: 0;
   }
 
-  .profile__info_name {
+  .profile__info-name {
     font-size: 22px;
-    margin: 0 auto 14px;
+    margin: 0;
   }
 
-  .profile__info_attribute {
+  .profile__info-attribute {
     font-size: 14px;
     margin: 0 auto 36px;
+  }
+
+  .profile__info_button-add {
+    max-width: 282px;
+  }
+
+  .profile__info_edit_button {
+    margin: 0;
   }
 }
