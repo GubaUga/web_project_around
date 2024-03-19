@@ -1,3 +1,11 @@
 .footer {
   background-color: black;
 }
+
+.footer_copyright {
+  font-family: "Inter Regular";
+  font-size: 18px;
+  color: #545454;
+  margin: 0;
+  padding-bottom: 60px;
+}
