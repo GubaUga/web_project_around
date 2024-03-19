@@ -1,0 +1,68 @@
+.popup {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.popup__opened {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.popup__content {
+  color: #000;
+  background-color: #fff;
+  max-width: 430px;
+  max-height: 330px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 195px;
+}
+
+.popup__content-image {
+  border: 1px solid black;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+}
+
+.popup__content-title {
+  font-family: "Inter Black";
+  font-size: 24px;
+  margin: 34px 64px 54px 36px;
+}
+
+.popup__content-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup__content-form-input {
+  font-family: "Inter Regular";
+  font-size: 14px;
+  max-width: 358px;
+  width: 100%;
+  margin-bottom: 30px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid gray;
+  padding-bottom: 13px;
+  color: #000;
+}
+
+.popup__content-form-input:nth-last-of-type(2n) {
+  margin-bottom: 40px;
+}
+
+.popup__content-form-button {
+  font-family: "Inter Regular";
+  font-size: 18px;
+  background-color: #000;
+  color: #fff;
+  max-width: 358px;
+  width: 100%;
+  padding: 14px 124px;
+}
