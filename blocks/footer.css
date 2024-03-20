@@ -10,7 +10,14 @@
   padding: 67px 0 60px 0;
 }
 
+@media screen and (max-width: 1024px) {
+  .footer {
+    padding-left: 100px;
+  }
+}
+
 @media screen and (max-width: 720px) {
   .footer {
+    padding-left: 19px;
   }
 }
