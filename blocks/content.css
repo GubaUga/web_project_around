@@ -1,3 +1,9 @@
+@media screen and (max-width: 1024px) {
+  .content {
+    padding-left: 100px;
+  }
+}
+
 @media screen and (max-width: 720px) {
   .content {
     padding-left: 19px;
