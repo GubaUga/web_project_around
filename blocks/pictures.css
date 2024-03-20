@@ -42,6 +42,14 @@
   border: 1px solid;
 }
 
+@media screen and (max-width: 1024px) {
+  .pictures {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 17px;
+    max-width: 585px;
+  }
+}
+
 @media screen and (max-width: 720px) {
   .pictures {
     grid-template-columns: repeat(1, 1fr);
