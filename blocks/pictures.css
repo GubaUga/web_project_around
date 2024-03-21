@@ -8,6 +8,8 @@
 
 .pictures__card {
   max-width: 282px;
+  display: flex;
+  flex-direction: column;
 }
 
 .pictures__card_image {
