@@ -1,5 +1,6 @@
 .footer {
   background-color: black;
+  max-width: 880px;
 }
 
 .footer_copyright {

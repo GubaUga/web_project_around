@@ -32,7 +32,7 @@
           />
           <div class="profile__content">
             <div class="profile__content-name">
-              <h2 class="profile__info-name">Teste</h2>
+              <h2 class="profile__info-name">Guilherme Alves</h2>
               <button class="profile__info_edit_button">
                 <img
                   class="profile__info_edit_button_image"
@@ -41,7 +41,7 @@
                 />
               </button>
             </div>
-            <p class="profile__info-attribute">Teste</p>
+            <p class="profile__info-attribute">Explorador</p>
           </div>
           <button class="profile__info_button-add">
             <img
@@ -147,26 +147,22 @@
       <footer class="footer">
         <p class="footer_copyright">@ 2024 Around The U.S.</p>
       </footer>
-      <div class="popup__opened popup">
+      <div class="popup">
         <div class="popup__content">
-          <img
-            class="popup__content-image"
-            alt="Ícone de X para fechar a janela de edição"
-            src="./images/X.png"
-          />
+          <div class="popup__content-image"></div>
           <h2 class="popup__content-title">Editar perfil</h2>
           <form class="popup__content-form">
             <input
               type="text"
-              class="popup__content-form-input"
+              class="popup__content-form-name"
               name="name"
-              placeholder="Teste"
+              placeholder="Nome"
             />
             <input
               type="text"
-              class="popup__content-form-input"
+              class="popup__content-form-description"
               name="description"
-              placeholder="Explorador"
+              placeholder="Descrição"
             />
             <input
               type="submit"
@@ -177,5 +173,6 @@
         </div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
