@@ -12,13 +12,13 @@
   flex-direction: column;
 }
 
-.pictures__card_image {
+.pictures__card-image {
   max-width: 282px;
   width: 100%;
   border-radius: 10px 10px 0 0;
 }
 
-.pictures__card_info {
+.pictures__card-info {
   display: flex;
   background-color: white;
   border-radius: 0 0 10px 10px;
@@ -27,7 +27,7 @@
   align-items: center;
 }
 
-.pictures__card_name {
+.pictures__card-name {
   font-family: "Inter Black";
   font-size: 24px;
   color: #000;
