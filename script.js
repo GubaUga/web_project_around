@@ -9,21 +9,30 @@ const likeButtons = document.querySelectorAll(".pictures__card-like");
 
 function showEditForm() {
   popup.classList.add("popup__opened");
+  closeButton.addEventListener("click", hideEditForm);
+  saveButton.addEventListener("click", (evt) => editInfo(evt));
 }
 
 function editInfo(evt) {
   evt.preventDefault();
-  let newName = document.querySelector(".popup__content-form-name");
-  let newDescription = document.querySelector(
+  const newName = document.querySelector(".popup__content-form-name");
+  const newDescription = document.querySelector(
     ".popup__content-form-description"
   );
 
-  pageName.textContent = newName.value;
-  pageDescription.textContent = newDescription.value;
+  if (newName.value === "" || newName.value === null) {
+    evt.preventDefault;
+  } else {
+    pageName.textContent = newName.value;
+    pageDescription.textContent = newDescription.value;
+    hideEditForm();
+  }
 }
 
 function hideEditForm() {
   popup.classList.remove("popup__opened");
+  closeButton.removeEventListener("click", hideEditForm);
+  saveButton.removeEventListener("click", (evt) => editInfo(evt));
 }
 
 function giveLike(evt) {
@@ -39,5 +48,3 @@ likeButtons.forEach((likeButton) =>
   likeButton.addEventListener("click", (evt) => giveLike(evt))
 );
 editButton.addEventListener("click", showEditForm);
-saveButton.addEventListener("click", (evt) => editInfo(evt));
-closeButton.addEventListener("click", hideEditForm);
