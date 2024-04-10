@@ -10,12 +10,27 @@
   max-width: 282px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .pictures__card-image {
   max-width: 282px;
   width: 100%;
   border-radius: 10px 10px 0 0;
+}
+
+.pictures__card-image-opened {
+  max-width: 75vw;
+  max-height: 75vh;
+  width: 100%;
+}
+
+.pictures__trash-image {
+  max-width: 18px;
+  max-height: 18px;
+  position: absolute;
+  top: 18px;
+  right: 15px;
 }
 
 .pictures__card-info {
