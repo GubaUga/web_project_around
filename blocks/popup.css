@@ -92,6 +92,28 @@
   background-color: #515a5a;
 }
 
+.popup__zoom-image {
+  justify-content: center;
+  align-items: center;
+}
+
+.popup__image {
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.popup__content-image-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.zoom__image_button {
+  background-image: url(../images/Close__Icon__White.svg);
+  position: absolute;
+  top: 40px;
+  right: 170px;
+}
+
 @media screen and (max-width: 1024px) {
 }
 

@@ -4,14 +4,16 @@ const pageDescription = content.querySelector(".profile__info-attribute");
 const profilePopup = document.querySelector(".profile__popup");
 const localPopup = document.querySelector(".local__popup");
 const editButton = content.querySelector(".profile__info-edit-button");
-// Preciso arrumar os botoões para não ser necessário criar 1 botão para cada formulário
 const saveEditButton = document.querySelector(".profile__save-button");
 const closeEditButton = document.querySelector(".profile__close-button");
-const saveLocalButton = document.querySelector(".local__save-button");
 const closeLocalButton = document.querySelector(".local__close-button");
 const likeButtons = document.querySelectorAll(".pictures__card-like");
 const newPlaceButton = document.querySelector(".profile__info-button-add");
-const fullImage = document.querySelector(".pictures__card-image");
+const pictures = document.querySelector(".pictures");
+const formAddPlace = document.querySelector(".popup__form-add-place");
+const popupZoomImage = document.querySelector(".popup__zoom-image");
+const imagePopup = document.querySelector(".popup__zoom-image");
+
 const initialCards = [
   {
     name: "Vale de Yosemite",
@@ -38,6 +40,44 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
   },
 ];
+
+function renderCard(card) {
+  const template = document
+    .querySelector("#template")
+    .content.querySelector(".pictures__card");
+
+  const currentCard = template.cloneNode(true);
+
+  currentCard.querySelector(".pictures__card-name").textContent = card.name;
+
+  const cardImage = currentCard.querySelector(".pictures__card-image");
+  cardImage.src = card.link;
+  cardImage.alt = `Imagem de ${card.name}`;
+  cardImage.addEventListener("click", function () {
+    const imageElement = imagePopup.querySelector(".popup__image");
+    const nameElement = imagePopup.querySelector(".popup__place-name");
+
+    imageElement.src = card.link;
+    imageElement.alt = `Imagem de ${card.name}`;
+    nameElement.textContent = card.name;
+
+    imagePopup.classList.add("popup__opened");
+  });
+
+  currentCard
+    .querySelector(".pictures__trash-icon")
+    .addEventListener("click", (evt) => {
+      const pictures = document.querySelector(".pictures");
+      const card = evt.target.offsetParent;
+      pictures.removeChild(card);
+    });
+
+  currentCard
+    .querySelector(".pictures__card-like")
+    .addEventListener("click", (evt) => giveLike(evt));
+
+  return currentCard;
+}
 
 function showEditForm() {
   profilePopup.classList.add("popup__opened");
@@ -70,42 +110,29 @@ function hideEditForm() {
 function showNewLocalForm() {
   localPopup.classList.add("popup__opened");
   closeLocalButton.addEventListener("click", hideNewLocalForm);
-  saveLocalButton.addEventListener("click", (evt) => addLocal(evt));
 }
 
 function hideNewLocalForm() {
   localPopup.classList.remove("popup__opened");
   closeLocalButton.removeEventListener("click", hideNewLocalForm);
-  saveLocalButton.removeEventListener("click", (evt) => addLocal(evt));
 }
 
-function showFullImage() {
-  fullImage.classList.add("pictures__card-image-opened");
-  closeImageButton.addEventListener("click", hideImage);
-}
+formAddPlace.addEventListener("submit", function (evt) {
+  evt.preventDefault();
+  const name = formAddPlace.querySelector(".popup__input-local-name").value;
+  const link = formAddPlace.querySelector(".popup__input-local-link").value;
 
-function addLocal(localValue, urlValue) {
-  const localCard = document.createElement("div");
-  localCard.classList.add("pictures__card");
+  const place = {
+    name: name,
+    link: link,
+  };
 
-  const localImage = document.createElement("img");
-  localImage.classList.add("pictures__card-image");
-  localImage.textContent = urlValue;
+  const newCard = renderCard(place);
 
-  const localInfo = document.createElement("div");
-  localInfo.classList.add("pictures__card-info");
+  pictures.prepend(newCard);
 
-  const localName = document.createElement("h3");
-  localName.classList.add("pictures__card-name");
-  localName.textContent = localValue;
-
-  const likeButton = document.createElement("img");
-  likeButton.classList.add("pictures__card-like");
-  likeButton.textContent = "./images/Like.png";
-
-  localCard.append(localImage, localInfo, localName, likeButton);
-  initialCards.append(localCard);
-}
+  localPopup.classList.remove("popup__opened");
+});
 
 function giveLike(evt) {
   const heart = evt.target;
@@ -116,10 +143,21 @@ function giveLike(evt) {
   return heart.setAttribute("src", "./images/Like.png");
 }
 
-likeButtons.forEach((likeButton) =>
-  likeButton.addEventListener("click", (evt) => giveLike(evt))
+function hideZoomImage() {
+  imagePopup.classList.remove("popup__opened");
+}
+
+initialCards.forEach((card, index) => {
+  const cardItem = renderCard(card);
+  pictures.append(cardItem);
+});
+
+const zoomImageCloseButton = popupZoomImage.querySelector(
+  ".zoom__image_button"
 );
+zoomImageCloseButton.addEventListener("click", function () {
+  popupZoomImage.classList.remove("popup__opened");
+});
 
 editButton.addEventListener("click", showEditForm);
 newPlaceButton.addEventListener("click", showNewLocalForm);
-fullImage.addEventListener("click", showFullImage);

@@ -52,6 +52,26 @@
           </button>
         </section>
         <section class="pictures">
+          <template id="template">
+            <div class="pictures__card">
+              <img
+                class="pictures__trash-icon"
+                src="./images/Lixeira.png"
+                alt="Ícone de lixeira para deletar foto"
+              />
+              <img class="pictures__card-image" alt="" src="#" />
+              <div class="pictures__card-info">
+                <h3 class="pictures__card-name"></h3>
+                <img
+                  class="pictures__card-like"
+                  alt="Ícone de coração para dar uma curtida na foto"
+                  src="./images/Like.png"
+                />
+              </div>
+            </div>
+          </template>
+
+          <!--
           <div class="pictures__card">
             <img
               class="pictures__card-image"
@@ -172,6 +192,7 @@
               />
             </div>
           </div>
+          -->
         </section>
       </main>
       <footer class="footer">
@@ -208,27 +229,32 @@
         <div class="popup__content">
           <div class="popup__content-image local__close-button"></div>
           <h2 class="popup__content-title">Novo local</h2>
-          <form class="popup__content-form">
+          <form class="popup__content-form popup__form-add-place">
             <input
               type="text"
-              class="popup__content-form-name"
+              class="popup__content-form-name popup__input-local-name"
               name="name"
               placeholder="Título"
-              required
             />
             <input
               type="text"
-              class="popup__content-form-description"
+              class="popup__content-form-description popup__input-local-link"
               name="description"
               placeholder="Link de imagem"
-              required
             />
             <input
               type="submit"
               value="Criar"
-              class="popup__content-form-button"
+              class="popup__content-form-button local__save-button"
             />
           </form>
+        </div>
+      </div>
+      <div class="popup popup__zoom-image">
+        <div class="popup__content-image zoom__image_button"></div>
+        <div class="popup__content-image-content">
+          <img src="" alt="" class="popup__image" />
+          <p class="popup__place-name"></p>
         </div>
       </div>
     </div>
