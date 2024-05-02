@@ -21,6 +21,7 @@
   position: relative;
   top: 195px;
   border-radius: 10px;
+  padding: 34px 36px 36.5px;
 }
 
 .popup__content-image {
@@ -43,7 +44,7 @@
 .popup__content-title {
   font-family: "Inter Black";
   font-size: 24px;
-  margin: 34px 64px 54px 36px;
+  margin: 0 64px 81px 0;
 }
 
 .popup__content-form {
@@ -55,7 +56,6 @@
 .popup__content-form-name {
   font-family: "Inter Regular";
   font-size: 14px;
-  max-width: 358px;
   width: 100%;
   margin-bottom: 30px;
   outline: none;
@@ -69,7 +69,6 @@
   margin-bottom: 40px;
   font-family: "Inter Regular";
   font-size: 14px;
-  max-width: 358px;
   width: 100%;
   outline: none;
   border: none;
@@ -83,7 +82,6 @@
   font-size: 18px;
   background-color: #000;
   color: #fff;
-  max-width: 358px;
   width: 100%;
   padding: 14px 124px;
 }
@@ -107,6 +105,15 @@
   flex-direction: column;
 }
 
+.popup__input {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.popup__submit {
+  margin-top: 20px;
+}
+
 .zoom__image_button {
   background-image: url(../images/Close__Icon__White.svg);
   position: absolute;
@@ -114,16 +121,22 @@
   right: 170px;
 }
 
+.button_inactive {
+  color: #b8b8b8;
+  background: #ededed;
+}
+
 @media screen and (max-width: 1024px) {
 }
 
 @media screen and (max-width: 720px) {
   .popup__content {
-    max-width: 282px;
+    max-width: 254px;
+    padding: 25px 22px;
   }
 
   .popup__content-title {
-    margin: 25px 22px 76px 22px;
+    margin: 2 22px 76px 22px;
     font-size: 18px;
   }
 
@@ -143,5 +156,10 @@
   .popup__content-form-button {
     max-width: 238px;
     padding: 14px 96px;
+  }
+
+  .zoom__image_button {
+    top: 100px;
+    left: 274px;
   }
 }

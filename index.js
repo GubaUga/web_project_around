@@ -1,6 +1,7 @@
 const content = document.querySelector(".content");
 const pageName = content.querySelector(".profile__info-name");
 const pageDescription = content.querySelector(".profile__info-attribute");
+const popupContent = document.querySelector(".popup__content");
 const profilePopup = document.querySelector(".profile__popup");
 const localPopup = document.querySelector(".local__popup");
 const editButton = content.querySelector(".profile__info-edit-button");
@@ -13,6 +14,7 @@ const pictures = document.querySelector(".pictures");
 const formAddPlace = document.querySelector(".popup__form-add-place");
 const popupZoomImage = document.querySelector(".popup__zoom-image");
 const imagePopup = document.querySelector(".popup__zoom-image");
+const popups = document.querySelectorAll(".popup");
 
 const initialCards = [
   {
@@ -161,3 +163,23 @@ zoomImageCloseButton.addEventListener("click", function () {
 
 editButton.addEventListener("click", showEditForm);
 newPlaceButton.addEventListener("click", showNewLocalForm);
+
+document.addEventListener("keydown", function (evt) {
+  if (evt.key === "Escape") {
+    hideEditForm();
+    hideNewLocalForm();
+    popupZoomImage.classList.remove("popup__opened");
+  }
+});
+
+profilePopup.addEventListener("click", () => {
+  profilePopup.classList.remove("popup__opened");
+});
+
+localPopup.addEventListener("click", () => {
+  localPopup.classList.remove("popup__opened");
+});
+
+popupZoomImage.addEventListener("click", () => {
+  popupZoomImage.classList.remove("popup__opened");
+});

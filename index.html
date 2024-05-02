@@ -70,129 +70,6 @@
               </div>
             </div>
           </template>
-
-          <!--
-          <div class="pictures__card">
-            <img
-              class="pictures__card-image"
-              alt="Imagem de um lago em uma floresta com uma montanha de fundo"
-              src="./images/Vale_de_Yosemite.jpg"
-            />
-            <img
-              class="pictures__trash-image"
-              alt="Ícone de uma lixeira"
-              src="./images/Lixeira.png"
-            />
-            <div class="pictures__card-info">
-              <h3 class="pictures__card-name">Vale de Yosemite</h3>
-              <img
-                class="pictures__card-like"
-                alt="Icone de coração para dar curtida"
-                src="./images/Like.png"
-              />
-            </div>
-          </div>
-          <div class="pictures__card">
-            <img
-              class="pictures__card-image"
-              alt="Imagem de um lago com montanhas ao fundo em um dia com céu limpo"
-              src="./images/Lago_Louise.png"
-            />
-            <img
-              class="pictures__trash-image"
-              alt="Ícone de uma lixeira"
-              src="./images/Lixeira.png"
-            />
-            <div class="pictures__card-info">
-              <h3 class="pictures__card-name">Lago Louise</h3>
-              <img
-                class="pictures__card-like"
-                alt="Icone de coração para dar curtida"
-                src="./images/Like.png"
-              />
-            </div>
-          </div>
-          <div class="pictures__card">
-            <img
-              class="pictures__card-image"
-              alt="Imagem de um pôr do sol com uma série de montanhas vistas de cima com um céu sem nuvens"
-              src="./images/Montanhas_Care.png"
-            />
-            <img
-              class="pictures__trash-image"
-              alt="Ícone de uma lixeira"
-              src="./images/Lixeira.png"
-            />
-            <div class="pictures__card-info">
-              <h3 class="pictures__card-name">Montanhas CareNãoSeiONome</h3>
-              <img
-                class="pictures__card-like"
-                alt="Icone de coração para dar curtida"
-                src="./images/Like.png"
-              />
-            </div>
-          </div>
-          <div class="pictures__card">
-            <img
-              class="pictures__card-image"
-              alt="Imagem de uma montanha de noite com um céu estrelado"
-              src="./images/Latemar.png"
-            />
-            <img
-              class="pictures__trash-image"
-              alt="Ícone de uma lixeira"
-              src="./images/Lixeira.png"
-            />
-            <div class="pictures__card-info">
-              <h3 class="pictures__card-name">Latemar</h3>
-              <img
-                class="pictures__card-like"
-                alt="Icone de coração para dar curtida"
-                src="./images/Like.png"
-              />
-            </div>
-          </div>
-          <div class="pictures__card">
-            <img
-              class="pictures__card-image"
-              alt="Imagem de um lago e uma montanha, o lago está emitindo um reflexo da montanha com céu sem nuvens"
-              src=".//images/Parque_Nacional_da_Vanoise.png"
-            />
-            <img
-              class="pictures__trash-image"
-              alt="Ícone de uma lixeira"
-              src="./images/Lixeira.png"
-            />
-            <div class="pictures__card-info">
-              <h3 class="pictures__card-name">Parque Nacional da Vanoise</h3>
-              <img
-                class="pictures__card-like"
-                alt="Icone de coração para dar curtida"
-                src="./images/Like.png"
-              />
-            </div>
-          </div>
-          <div class="pictures__card">
-            <img
-              class="pictures__card-image"
-              alt="Imagem de uma série de montanhas cobertas em neve, um lago transparente e uma cabana com alguns barcos de madeira"
-              src="./images/Lago_di_Braies.png"
-            />
-            <img
-              class="pictures__trash-image"
-              alt="Ícone de uma lixeira"
-              src="./images/Lixeira.png"
-            />
-            <div class="pictures__card-info">
-              <h3 class="pictures__card-name">Lago di Braies</h3>
-              <img
-                class="pictures__card-like"
-                alt="Icone de coração para dar curtida"
-                src="./images/Like.png"
-              />
-            </div>
-          </div>
-          -->
         </section>
       </main>
       <footer class="footer">
@@ -202,51 +79,70 @@
         <div class="popup__content">
           <div class="popup__content-image profile__close-button"></div>
           <h2 class="popup__content-title">Editar perfil</h2>
-          <form class="popup__content-form">
-            <input
-              type="text"
-              class="popup__content-form-name"
-              name="name"
-              placeholder="Nome"
-              required
-            />
-            <input
-              type="text"
-              class="popup__content-form-description"
-              name="description"
-              placeholder="Descrição"
-              required
-            />
-            <input
-              type="submit"
-              value="Salvar"
-              class="popup__content-form-button profile__save-button"
-            />
+          <form class="form popup__content-form">
+            <fieldset class="form__set">
+              <input
+                type="text"
+                class="popup__input popup__content-form-name"
+                id="name-input"
+                placeholder="Nome"
+                required
+                minlength="2"
+                maxlength="40"
+              />
+              <span class="form__input-error name-input-error"></span>
+              <input
+                type="text"
+                class="popup__input popup__content-form-description"
+                id="about-input"
+                placeholder="Descrição"
+                required
+                minlength="2"
+                maxlength="200"
+              />
+              <span class="form__input-error about-input-error"></span>
+              <input
+                type="submit"
+                value="Salvar"
+                class="popup__submit popup__content-form-button profile__save-button popup__button"
+              />
+            </fieldset>
           </form>
         </div>
       </div>
-      <div class="popup local__popup">
+      <div class="popup local__popup" id="popup">
         <div class="popup__content">
           <div class="popup__content-image local__close-button"></div>
           <h2 class="popup__content-title">Novo local</h2>
-          <form class="popup__content-form popup__form-add-place">
-            <input
-              type="text"
-              class="popup__content-form-name popup__input-local-name"
-              name="name"
-              placeholder="Título"
-            />
-            <input
-              type="text"
-              class="popup__content-form-description popup__input-local-link"
-              name="description"
-              placeholder="Link de imagem"
-            />
-            <input
-              type="submit"
-              value="Criar"
-              class="popup__content-form-button local__save-button"
-            />
+          <form
+            class="form popup__content-form popup__form-add-place"
+            id="form"
+          >
+            <fieldset class="form__set">
+              <input
+                type="text"
+                class="popup__input popup__content-form-name popup__input-local-name"
+                id="title-input"
+                required
+                placeholder="Título"
+                minlength="2"
+                maxlength="30"
+              />
+              <span class="form__input-error title-input-error"></span>
+              <input
+                type="url"
+                class="popup__input popup__content-form-description popup__input-local-link"
+                id="url-input"
+                required
+                placeholder="Link de imagem"
+              />
+              <span class="form__input-error url-input-error"></span>
+              <input
+                type="submit"
+                value="Criar"
+                class="popup__submit popup__content-form-button local__save-button popup__button"
+              />
+            </fieldset>
           </form>
         </div>
       </div>
@@ -258,6 +154,7 @@
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="index.js"></script>
+    <script src="validate.js"></script>
   </body>
 </html>
