@@ -5,9 +5,9 @@ const popupContent = document.querySelector(".popup__content");
 const profilePopup = document.querySelector(".profile-popup");
 const localPopup = document.querySelector(".local-popup");
 const editButton = content.querySelector(".profile__info-edit-button");
-const saveEditButton = document.querySelector(".profile__save-button");
-const closeEditButton = document.querySelector(".profile__close-button");
-const closeLocalButton = document.querySelector(".local__close-button");
+const saveEditButton = document.querySelector(".profile-save-button");
+const closeEditButton = document.querySelector(".profile-close-button");
+const closeLocalButton = document.querySelector(".local-close-button");
 const likeButtons = document.querySelectorAll(".pictures__card-like");
 const newPlaceButton = document.querySelector(".profile__info-button-add");
 const pictures = document.querySelector(".pictures");
@@ -154,9 +154,7 @@ initialCards.forEach((card, index) => {
   pictures.append(cardItem);
 });
 
-const zoomImageCloseButton = popupZoomImage.querySelector(
-  ".zoom__image_button"
-);
+const zoomImageCloseButton = popupZoomImage.querySelector(".zoom-image_button");
 zoomImageCloseButton.addEventListener("click", function () {
   popupZoomImage.classList.remove("popup__opened");
 });
