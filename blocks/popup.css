@@ -90,7 +90,7 @@
   background-color: #515a5a;
 }
 
-.popup__zoom-image {
+.popup-zoom-image {
   justify-content: center;
   align-items: center;
 }
@@ -114,7 +114,7 @@
   margin-top: 20px;
 }
 
-.zoom__image_button {
+.zoom-image-button {
   background-image: url(../images/Close__Icon__White.svg);
   position: absolute;
   top: 40px;

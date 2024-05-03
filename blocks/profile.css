@@ -33,6 +33,7 @@
   font-family: "Inter Medium";
   font-size: 42px;
   line-height: 48px;
+  overflow: hidden;
 }
 
 .profile__info-attribute {
@@ -40,6 +41,9 @@
   font-family: "Inter Regular";
   font-size: 18px;
   line-height: 22px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .profile__info-edit-button {

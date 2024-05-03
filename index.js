@@ -13,7 +13,8 @@ const newPlaceButton = document.querySelector(".profile__info-button-add");
 const pictures = document.querySelector(".pictures");
 const formAddPlace = document.querySelector(".popup__form-add-place");
 const popupZoomImage = document.querySelector(".popup-zoom-image");
-const imagePopup = document.querySelector(".popup__zoom-image");
+const imagePopup = document.querySelector(".popup-zoom-image");
+const popup = document.querySelector(".popup");
 const popups = document.querySelectorAll(".popup");
 
 const initialCards = [
@@ -170,14 +171,20 @@ document.addEventListener("keydown", function (evt) {
   }
 });
 
-profilePopup.addEventListener("click", () => {
-  profilePopup.classList.remove("popup__opened");
+window.addEventListener("click", (event) => {
+  if (event.target === profilePopup) {
+    profilePopup.classList.remove("popup__opened");
+  }
 });
 
-localPopup.addEventListener("click", () => {
-  localPopup.classList.remove("popup__opened");
+window.addEventListener("click", (event) => {
+  if (event.target === localPopup) {
+    localPopup.classList.remove("popup__opened");
+  }
 });
 
-popupZoomImage.addEventListener("click", () => {
-  popupZoomImage.classList.remove("popup__opened");
+window.addEventListener("click", (event) => {
+  if (event.target === popupZoomImage) {
+    popupZoomImage.classList.remove("popup__opened");
+  }
 });
