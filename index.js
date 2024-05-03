@@ -154,7 +154,7 @@ initialCards.forEach((card, index) => {
   pictures.append(cardItem);
 });
 
-const zoomImageCloseButton = popupZoomImage.querySelector(".zoom-image_button");
+const zoomImageCloseButton = popupZoomImage.querySelector(".zoom-image-button");
 zoomImageCloseButton.addEventListener("click", function () {
   popupZoomImage.classList.remove("popup__opened");
 });
