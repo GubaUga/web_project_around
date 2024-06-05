@@ -59,10 +59,10 @@ function hideZoomImage() {
   imagePopup.classList.remove("popup__opened");
 }
 
-editButton.addEventListener("click", showEditForm);
-newPlaceButton.addEventListener("click", showNewLocalForm);
+//editButton.addEventListener("click", showEditForm);
+//newPlaceButton.addEventListener("click", showNewLocalForm);
 
-formAddPlace.addEventListener("submit", function (evt) {
+/*formAddPlace.addEventListener("submit", function (evt) {
   evt.preventDefault();
   const name = formAddPlace.querySelector(".popup__input-local-name").value;
   const link = formAddPlace.querySelector(".popup__input-local-link").value;
@@ -85,7 +85,7 @@ document.addEventListener("keydown", function (evt) {
     hideNewLocalForm();
     popupZoomImage.classList.remove("popup__opened");
   }
-});
+});*/
 
 window.addEventListener("click", (event) => {
   if (event.target === profilePopup) {

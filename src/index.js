@@ -1,7 +1,11 @@
-const pictures = document.querySelector(".pictures");
+//const pictures = document.querySelector(".pictures");
 
-import { Card } from "./Card.js";
-import { FormValidator } from "./FormValidator.js";
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
+import PopupWithForm from "./PopupWithForm.js";
+import PopupWithImage from "./PopupWithImage.js";
+import Section from "./Section.js";
+import UserInfo from "./UserInfo.js";
 
 const initialCards = [
   {
@@ -30,16 +34,6 @@ const initialCards = [
   },
 ];
 
-initialCards.forEach((card, index) => {
-  const cardElement = renderCard(card);
-  pictures.append(cardElement);
-});
-
-function renderCard(data) {
-  const card = new Card(data, "#template");
-  return card.generateCard();
-}
-
 new FormValidator(
   {
     formSelector: ".popup__form",
@@ -65,3 +59,50 @@ new FormValidator(
   },
   document.querySelector(".popup__form-add-place")
 ).enableValidation();
+
+const popupImage = new PopupWithImage(".popup-zoom-image");
+
+const handleCardClick = ({ name, link }) => {
+  popupImage.open(link, name);
+};
+
+const section = new Section(
+  {
+    items: initialCards,
+    renderer: (data) => {
+      const card = new Card(data, "#template", handleCardClick);
+      const cardElement = card.generateCard();
+      const cardImage = cardElement.querySelector(".pictures__card-image");
+
+      cardImage.addEventListener("click", function () {
+        popupImage.open(data.link, data.name);
+      });
+      return cardElement;
+    },
+  },
+  ".pictures"
+);
+section.renderItems();
+
+const newPlaceButton = document.querySelector(".profile__info-button-add");
+const placePopup = new PopupWithForm((placeData) => {
+  section.addItem(placeData);
+}, ".local-popup");
+
+newPlaceButton.addEventListener("click", function () {
+  placePopup.open();
+});
+
+const editProfileButton = document.querySelector(".profile__info-edit-button");
+const userInfo = new UserInfo({
+  nameSelector: ".profile__info-name",
+  aboutSelector: ".profile__info-attribute",
+});
+
+const profilePopup = new PopupWithForm((formData) => {
+  userInfo.setUserInfo(formData);
+}, ".profile-popup");
+
+editProfileButton.addEventListener("click", function () {
+  profilePopup.open();
+});

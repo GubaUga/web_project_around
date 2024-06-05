@@ -1,4 +1,4 @@
-export class FormValidator {
+export default class FormValidator {
   constructor(config, formElement) {
     this._config = config;
     this._formElement = formElement;
@@ -36,7 +36,6 @@ export class FormValidator {
       this._config.submitButtonSelector
     );
     const isFormValid = this._formElement.checkValidity();
-    console.log(isFormValid);
     if (isFormValid) {
       submitButtonElement.removeAttribute("disabled");
       submitButtonElement.classList.remove("button_inactive");
@@ -45,40 +44,4 @@ export class FormValidator {
       submitButtonElement.classList.add("button_inactive");
     }
   }
-
-  /*_showInputError(formElement, inputElement, errorMessage) {
-    const _errorElement = formElement.querySelector(
-      `.${inputElement.id}-error`
-    );
-    inputElement.classList.add(this._config.inputErrorClass);
-    _errorElement.textContent = errorMessage;
-    _errorElement.classList.add("form__input-error_active");
-  }
-
-  _hideInputError(formElement, inputElement) {
-    const _errorElement = formElement.querySelector(
-      `.${inputElement.id}-error`
-    );
-    inputElement.classList.remove(this._config.inputErrorClass);
-    _errorElement.classList.remove("form__input-error_active");
-    _errorElement.textContent = "";
-  }
-
-  _checkInputValidity() {
-    if (!inputElement.validity.valid) {
-      this._showInputError(
-        formElement,
-        inputElement,
-        inputElement.validationMessage
-      );
-    } else {
-      this._hideInputError(formElement, inputElement);
-    }
-  }
-
-  _hasInvalidInput(inputList) {
-    return inputList.some((inputElement) => {
-      return !inputElement.validity.valid;
-    });
-  }*/
 }

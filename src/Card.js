@@ -1,8 +1,9 @@
-export class Card {
-  constructor(data, templateSelector) {
+export default class Card {
+  constructor(data, templateSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -42,7 +43,6 @@ export class Card {
 
   _giveLike(evt) {
     const heart = evt.target;
-    console.log(heart);
     if (heart.getAttribute("src") === "./images/Like.png") {
       return heart.setAttribute("src", "./images/FilledHeart.png");
     }
