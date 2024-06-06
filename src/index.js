@@ -1,5 +1,4 @@
-//const pictures = document.querySelector(".pictures");
-
+import "./pages/index.css";
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import PopupWithForm from "./PopupWithForm.js";

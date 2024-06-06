@@ -19,7 +19,7 @@
         <img
           class="header__logo"
           alt="Logo TripleTen Social Media"
-          src="./images/Logo.png"
+          src="<%=require('./images/Logo.png')%>"
         />
       </header>
       <main class="content">
@@ -27,7 +27,7 @@
           <img
             class="profile__image"
             alt="Imagem de perfil do usuário"
-            src="./images/Avatar.png"
+            src="<%=require('./images/Avatar.png')%>"
           />
           <div class="profile__content">
             <div class="profile__content-name">
@@ -36,7 +36,7 @@
                 <img
                   class="profile__info-edit-button-image"
                   alt="Botâo de edição do perfil"
-                  src="./images/Button_info_edit.png"
+                  src="<%=require('./images/Button_info_edit.png')%>"
                 />
               </button>
             </div>
@@ -46,7 +46,7 @@
             <img
               class="profile__info-button-image"
               alt="Simbolo de adição dentro do botão"
-              src="./images/Button_info.png"
+              src="<%=require('./images/Button_info.png')%>"
             />
           </button>
         </section>
@@ -55,7 +55,7 @@
             <div class="pictures__card">
               <img
                 class="pictures__trash-icon"
-                src="./images/Lixeira.png"
+                src="<%=require('./images/Lixeira.png')%>"
                 alt="Ícone de lixeira para deletar foto"
               />
               <img class="pictures__card-image" alt="" src="#" />
@@ -64,7 +64,7 @@
                 <img
                   class="pictures__card-like"
                   alt="Ícone de coração para dar uma curtida na foto"
-                  src="./images/Like.png"
+                  src="<%=require('./images/Like.png')%>"
                 />
               </div>
             </div>
@@ -163,8 +163,5 @@
         </div>
       </div>
     </div>
-    <script type="module" src="index.js"></script>
-    <script type="module" src="card.js"></script>
-    <script type="module" src="formValidator.js"></script>
   </body>
 </html>
