@@ -5,6 +5,14 @@ import PopupWithForm from "./PopupWithForm.js";
 import PopupWithImage from "./PopupWithImage.js";
 import Section from "./Section.js";
 import UserInfo from "./UserInfo.js";
+import Api from "./Api.js";
+
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/web-ptbr-cohort-11",
+  headers: {
+    authorization: "851a379c-d06a-4d1b-8d15-db22aab5675",
+  },
+});
 
 const initialCards = [
   {
@@ -92,12 +100,16 @@ newPlaceButton.addEventListener("click", function () {
   placePopup.open();
 });
 
-const editProfileButton = document.querySelector(".profile__info-edit-button");
 const userInfo = new UserInfo({
   nameSelector: ".profile__info-name",
   aboutSelector: ".profile__info-attribute",
 });
 
+api.getUserInfo().then((user) => {
+  userInfo.setUserInfo(user);
+});
+
+const editProfileButton = document.querySelector(".profile__info-edit-button");
 const profilePopup = new PopupWithForm((formData) => {
   userInfo.setUserInfo(formData);
 }, ".profile-popup");
