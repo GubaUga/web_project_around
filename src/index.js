@@ -14,33 +14,6 @@ const api = new Api({
   },
 });
 
-const initialCards = [
-  {
-    name: "Vale de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
-  },
-  {
-    name: "Montanhas Carecas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
-  },
-  {
-    name: "Parque Nacional da Vanoise ",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
-  },
-];
-
 new FormValidator(
   {
     formSelector: ".popup__form",
@@ -68,37 +41,40 @@ new FormValidator(
 ).enableValidation();
 
 const popupImage = new PopupWithImage(".popup-zoom-image");
+popupImage.setEventListeners();
+
+api.getInitialCards().then((cards) => {
+  const section = new Section(
+    {
+      items: cards,
+      renderer: (data) => {
+        const card = new Card(data, "#template", handleCardClick);
+        const cardElement = card.generateCard();
+        const cardImage = cardElement.querySelector(".pictures__card-image");
+
+        cardImage.addEventListener("click", function () {
+          popupImage.open(data.link, data.name);
+        });
+        return cardElement;
+      },
+    },
+    ".pictures"
+  );
+  section.renderItems();
+
+  const newPlaceButton = document.querySelector(".profile__info-button-add");
+  const placePopup = new PopupWithForm((placeData) => {
+    section.addItem(placeData);
+  }, ".local-popup");
+
+  newPlaceButton.addEventListener("click", function () {
+    placePopup.open();
+  });
+});
 
 const handleCardClick = ({ name, link }) => {
   popupImage.open(link, name);
 };
-
-const section = new Section(
-  {
-    items: initialCards,
-    renderer: (data) => {
-      const card = new Card(data, "#template", handleCardClick);
-      const cardElement = card.generateCard();
-      const cardImage = cardElement.querySelector(".pictures__card-image");
-
-      cardImage.addEventListener("click", function () {
-        popupImage.open(data.link, data.name);
-      });
-      return cardElement;
-    },
-  },
-  ".pictures"
-);
-section.renderItems();
-
-const newPlaceButton = document.querySelector(".profile__info-button-add");
-const placePopup = new PopupWithForm((placeData) => {
-  section.addItem(placeData);
-}, ".local-popup");
-
-newPlaceButton.addEventListener("click", function () {
-  placePopup.open();
-});
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__info-name",
