@@ -10,7 +10,7 @@ import Api from "./Api.js";
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/web-ptbr-cohort-11",
   headers: {
-    authorization: "851a379c-d06a-4d1b-8d15-db22aab5675",
+    authorization: "8ed6098f-fb36-4fa5-a328-69061e307ca0",
     "Content-Type": "application/json",
   },
 });
