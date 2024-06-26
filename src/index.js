@@ -11,6 +11,7 @@ const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/web-ptbr-cohort-11",
   headers: {
     authorization: "851a379c-d06a-4d1b-8d15-db22aab5675",
+    "Content-Type": "application/json",
   },
 });
 
@@ -86,8 +87,10 @@ api.getUserInfo().then((user) => {
 });
 
 const editProfileButton = document.querySelector(".profile__info-edit-button");
-const profilePopup = new PopupWithForm((formData) => {
-  userInfo.setUserInfo(formData);
+const profilePopup = new PopupWithForm((userData) => {
+  api.patchUserInfo(userData).then((apiUser) => {
+    userInfo.setUserInfo(apiUser);
+  });
 }, ".profile-popup");
 
 editProfileButton.addEventListener("click", function () {
