@@ -2,6 +2,7 @@ export default class Card {
   constructor(data, templateSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
+    this._likes = data.likes || [];
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
   }
@@ -29,6 +30,8 @@ export default class Card {
     cardImage.src = this._link;
     cardImage.alt = `Imagem de ${this._name}`;
     cardElement.querySelector(".pictures__card-name").textContent = this._name;
+    cardElement.querySelector(".pictures__card-like-count").textContent =
+      this._likes.length;
     this._setEventListeners(cardElement);
     return cardElement;
   }
@@ -44,20 +47,34 @@ export default class Card {
   _giveLike(evt) {
     const heart = evt.target;
     if (heart.getAttribute("src") === "./images/Like.png") {
-      return heart.setAttribute("src", "./images/FilledHeart.png");
+      heart.setAttribute("src", "./images/FilledHeart.png");
+      this._likes.push("userId");
+    } else {
+      heart.setAttribute("src", "./images/Like.png");
+      const index = this._likes.indexOf("userId");
+      if (index > -1) {
+        this._likes.splice(index, 1);
+      }
     }
-    return heart.setAttribute("src", "./images/Like.png");
+    this._updateLikeCount();
+  }
+
+  _updateLikeCount() {
+    const likeCountElement = document.querySelector(
+      ".pictures__card-like-count"
+    );
+    likeCountElement.textContent = this._likes.length;
   }
 
   _setEventListeners(cardElement) {
     cardElement
       .querySelector(".pictures__trash-icon")
-      .addEventListener("click", this._deleteCard);
+      .addEventListener("click", (evt) => this._deleteCard(evt));
 
     cardElement
       .querySelector(".pictures__card-like")
-      .addEventListener("click", this._giveLike);
+      .addEventListener("click", (evt) => this._giveLike(evt));
 
-    cardElement.addEventListener("click", this._handleImageClick);
+    cardElement.addEventListener("click", () => this._handleImageClick());
   }
 }

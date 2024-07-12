@@ -59,11 +59,14 @@
               <img class="pictures__card-image" alt="" src="#" />
               <div class="pictures__card-info">
                 <h3 class="pictures__card-name"></h3>
-                <img
-                  class="pictures__card-like"
-                  alt="Ícone de coração para dar uma curtida na foto"
-                  src="<%=require('./images/Like.png')%>"
-                />
+                <div class="pictures__card-like-container">
+                  <img
+                    class="pictures__card-like"
+                    alt="Ícone de coração para dar uma curtida na foto"
+                    src="<%=require('./images/Like.png')%>"
+                  />
+                  <span class="pictures__card-like-count">0</span>
+                </div>
               </div>
             </div>
           </template>
