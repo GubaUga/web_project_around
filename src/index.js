@@ -51,7 +51,7 @@ api
       {
         items: cards,
         renderer: (data) => {
-          const card = new Card(data, "#template", handleCardClick);
+          const card = new Card(data, "#template", handleCardClick, api);
           const cardElement = card.generateCard();
           const cardImage = cardElement.querySelector(".pictures__card-image");
 
@@ -69,14 +69,16 @@ api
     const placePopup = new PopupWithForm((placeData) => {
       api
         .addCard({
-          name: placeData["name"],
-          link: placeData["link"],
+          name: placeData["title"],
+          link: placeData["url"],
         })
         .then((newCard) => {
           section.addItem(newCard);
           placePopup.close();
         })
-        .catch((err) => console.error(`Erro ao adicionar cartão ${err}`));
+        .catch((err) =>
+          console.error(`Erro ao adicionar cartão ${(err, placeData)}`)
+        );
     }, ".local-popup");
 
     newPlaceButton.addEventListener("click", function () {
