@@ -41,7 +41,6 @@ export default class Api {
   }
 
   addCard(cardData) {
-    console.log(cardData);
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
@@ -63,7 +62,7 @@ export default class Api {
       if (res.ok) {
         return res.json();
       }
-      return Promise.reject(`Error: ${res.status}`);
+      return Promise.reject(`Erro: ${res.status}`);
     });
   }
 
@@ -75,7 +74,7 @@ export default class Api {
       if (res.ok) {
         return res.json();
       }
-      return Promise.reject(`Error: ${res.status}`);
+      return Promise.reject(`Erro: ${res.status}`);
     });
   }
 
@@ -87,7 +86,22 @@ export default class Api {
       if (res.ok) {
         return res.json();
       }
-      return Promise.reject(`Error: ${res.status}`);
+      return Promise.reject(`Erro: ${res.status}`);
+    });
+  }
+
+  updateProfilePicture(avatarLink) {
+    return fetch("https://around.nomoreparties.co/v1/groupId/users/me/avatar", {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: avatarLink,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Erro: ${res.status}`);
     });
   }
 }

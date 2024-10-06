@@ -7,6 +7,13 @@
 
 .profile__image {
   margin: 0 30px 0 0;
+  display: block;
+  width: 100px; /* Defina o tamanho desejado */
+  height: 100px;
+  border-radius: 50%; /* Faz a imagem ficar redonda */
+  object-fit: cover; /* Garante que a imagem se ajuste corretamente */
+  position: relative; /* Necessário para posicionar o ícone sobre a imagem */
+  transition: opacity 0.3s ease; /* Adiciona transição suave para a opacidade */
 }
 
 .profile__content {
@@ -69,6 +76,35 @@
 
 .profile__info-button-add:hover {
   border: 2px solid gray;
+}
+
+.profile__edit-avatar-button {
+  opacity: 0;
+  transition: opacity 0.3s;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  cursor: pointer;
+  max-width: 26px;
+  max-height: 26px;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.profile__image-container:hover .profile__edit-avatar-button {
+  opacity: 1;
+}
+
+.profile__image-container:hover .profile__image {
+  opacity: 0.5;
+}
+
+.profile__image-container {
+  position: relative;
+  display: inline-block;
 }
 
 @media screen and (max-width: 1024px) {

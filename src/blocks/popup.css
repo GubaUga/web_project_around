@@ -24,6 +24,44 @@
   padding: 34px 36px 36.5px;
 }
 
+.popup__content-delete {
+  max-height: 181px;
+  padding: 0 36px;
+}
+
+.popup__confirm-button {
+  padding: 0 36px 36px 36px;
+}
+
+.popup-delete-title {
+  font-size: 24px;
+  color: #000;
+  font-family: "Inter Black";
+  margin: 0;
+  padding-top: 34px;
+  padding-bottom: 38px;
+}
+
+.popup__content-avatar {
+  max-height: 272px;
+  padding: 0 36px;
+  max-width: 358px;
+}
+
+.popup-avatar-title {
+  font-size: 24px;
+  color: #000;
+  font-family: "Inter Black";
+  margin: 0;
+  padding-top: 34px;
+  padding-bottom: 54px;
+}
+
+.popup__button-avatar {
+  padding-top: 48px;
+  padding-bottom: 36px;
+}
+
 .popup__content-image {
   max-width: 41px;
   max-height: 41px;
