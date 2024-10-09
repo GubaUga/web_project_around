@@ -82,7 +82,7 @@ api.getUserInfo().then((user) => {
         ".profile__info-button-add"
       );
       const placePopup = new PopupWithForm((placeData) => {
-        api
+        return api
           .addCard({
             name: placeData["title"],
             link: placeData["url"],
@@ -118,7 +118,7 @@ api.getUserInfo().then((user) => {
 
 const editProfileButton = document.querySelector(".profile__info-edit-button");
 const profilePopup = new PopupWithForm((userData) => {
-  api.patchUserInfo(userData).then((apiUser) => {
+  return api.patchUserInfo(userData).then((apiUser) => {
     userInfo.setUserInfo(apiUser);
   });
 }, ".profile-popup");
@@ -133,7 +133,7 @@ editProfileButton.addEventListener("click", function () {
 const popupAvatar = new PopupWithForm((formData) => {
   const avatarLink = formData.avatar;
 
-  api
+  return api
     .updateProfilePicture(avatarLink)
     .then((res) => {
       document.querySelector(".profile__image").src = res.avatar;

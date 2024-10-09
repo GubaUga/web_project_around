@@ -91,7 +91,7 @@ export default class Api {
   }
 
   updateProfilePicture(avatarLink) {
-    return fetch("https://around.nomoreparties.co/v1/groupId/users/me/avatar", {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({

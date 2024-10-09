@@ -88,7 +88,7 @@ export default class Card {
 
         heart.setAttribute(
           "src",
-          isLiked ? "./images/Like.png" : "./images/FilledHeart.png"
+          isLiked ? "./images/Like.png" : "./images/Givelike.svg"
         );
         console.log(heart.src);
       })
