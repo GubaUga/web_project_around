@@ -19,16 +19,8 @@ export default class PopupWithForm extends Popup {
   _renderLoading(isLoading) {
     if (isLoading) {
       this._submitButton.value = "Salvando...";
-      console.log(
-        "Texto do botão durante o carregamento:",
-        this._submitButton.value
-      );
     } else {
       this._submitButton.value = this._submitButtonText;
-      console.log(
-        "Texto do botão após o carregamento:",
-        this._submitButton.value
-      );
     }
   }
 

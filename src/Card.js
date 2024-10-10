@@ -44,18 +44,6 @@ export default class Card {
       .catch((err) => console.error(`Erro ao deletar o cartão: ${err}`));
   }
 
-  /*_confirmDelete(evt) {
-    const deletePopup = document.querySelector(".popup-delete-card");
-    deletePopup.classList.add("popup__opened");
-
-    deletePopup
-      .querySelector(".popup__confirm-button")
-      .addEventListener("click", () => {
-        this._deleteCard(evt);
-        deletePopup.classList.remove("popup_opened");
-      });
-  }*/
-
   _confirmDelete(evt) {
     this._currentElement = evt.target.closest(".pictures__card");
     this._currentCardId = this._id;
@@ -90,7 +78,6 @@ export default class Card {
           "src",
           isLiked ? "./images/Like.png" : "./images/Givelike.png"
         );
-        console.log(heart.src);
       })
       .catch((err) => console.error(`Erro ao atualizar a curtida: ${err}`));
   }
