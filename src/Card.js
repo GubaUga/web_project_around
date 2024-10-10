@@ -88,7 +88,7 @@ export default class Card {
 
         heart.setAttribute(
           "src",
-          isLiked ? "./images/Like.png" : "./images/Givelike.svg"
+          isLiked ? "./images/Like.png" : "./images/Givelike.png"
         );
         console.log(heart.src);
       })
@@ -122,9 +122,6 @@ export default class Card {
       deleteButton.addEventListener("click", (evt) => this._confirmDelete(evt));
     }
 
-    cardElement
-      .querySelector(".pictures__trash-icon")
-      .addEventListener("click", (evt) => this._deleteCard(evt));
     cardElement
       .querySelector(".pictures__card-like")
       .addEventListener("click", (evt) => this._giveLike(evt));

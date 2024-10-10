@@ -5,8 +5,8 @@ export default class PopupWithForm extends Popup {
     super(popupSelector);
     this._submitCallback = submitCallback;
     this._form = this.popup.querySelector(".form");
-    this._submitButton = this.popup.querySelector(".popup__submit");
-    //this._submitButtonText = this._submitButton.textContent;
+    this._submitButton = this.popup.querySelector(".popup__submit-button");
+    this._submitButtonText = this._submitButton.value;
     this.setEventListeners();
   }
 
@@ -16,25 +16,34 @@ export default class PopupWithForm extends Popup {
     return dataObject;
   }
 
-  /*_renderLoading(isLoading) {
+  _renderLoading(isLoading) {
     if (isLoading) {
-      this._submitButton.textContent = "Salvando...";
+      this._submitButton.value = "Salvando...";
+      console.log(
+        "Texto do botão durante o carregamento:",
+        this._submitButton.value
+      );
     } else {
-      this._submitButton.textContent = this._submitButtonText;
+      this._submitButton.value = this._submitButtonText;
+      console.log(
+        "Texto do botão após o carregamento:",
+        this._submitButton.value
+      );
     }
-  }*/
+  }
 
   setEventListeners() {
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      //this._renderLoading(true);
+      this._renderLoading(true);
       const inputValue = this._getInputValues();
-      this._submitCallback(inputValue).then(() => {
-        this.close();
-      });
-      /*.finally(() => {
+      this._submitCallback(inputValue)
+        .then(() => {
+          this.close();
+        })
+        .finally(() => {
           this._renderLoading(false);
-        });*/
+        });
     });
     super.setEventListeners();
   }
@@ -42,6 +51,6 @@ export default class PopupWithForm extends Popup {
   close() {
     super.close();
     this._form.reset();
-    //this._renderLoading(false);
+    this._renderLoading(false);
   }
 }

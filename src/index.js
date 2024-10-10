@@ -1,4 +1,5 @@
 import "./pages/index.css";
+import givelikeIcon from "./images/Givelike.png";
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import PopupWithForm from "./PopupWithForm.js";
