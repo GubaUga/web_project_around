@@ -24,6 +24,10 @@
   padding: 34px 36px 36.5px;
 }
 
+.popup__content-image-content {
+  position: relative;
+}
+
 .popup__content-delete {
   max-height: 181px;
   padding: 0 36px;
@@ -155,8 +159,12 @@
 .zoom-image-button {
   background-image: url(../images/Close__Icon__White.svg);
   position: absolute;
-  top: 40px;
-  right: 170px;
+  top: -40px;
+  right: -40px;
+  width: 41px;
+  height: 41px;
+  cursor: pointer;
+  z-index: 10;
 }
 
 .button_inactive {
